@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class MainView extends JFrame {
     
-    public MainView(String title, SMA mas, int canvasSizeX, int canvasSizeY) throws HeadlessException {
+    public MainView(String title, SMA mas, int canvasSizeX, int canvasSizeY){
         super(title);
 
         EnvironmentView environmentView = new EnvironmentView(mas.getEnvironment());

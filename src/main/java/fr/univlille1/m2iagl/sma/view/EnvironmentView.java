@@ -10,7 +10,7 @@ import javax.swing.*;
 
 public class EnvironmentView extends JPanel implements Observer {
 
-    private Environment environment;
+    private transient Environment environment;
 
     public EnvironmentView(Environment environment) {
         super();
