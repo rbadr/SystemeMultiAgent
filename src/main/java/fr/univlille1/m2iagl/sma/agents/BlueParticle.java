@@ -1,10 +1,12 @@
 package fr.univlille1.m2iagl.sma.agents;
 
+import fr.univlille1.m2iagl.sma.environment.Environment;
 import java.awt.*;
 
 public class BlueParticle extends Agent {
 
-    public BlueParticle() {
+    public BlueParticle(Environment<Agent> environment) {
+        super(environment);
     }
 
     @Override

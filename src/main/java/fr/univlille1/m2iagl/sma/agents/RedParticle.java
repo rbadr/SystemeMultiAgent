@@ -1,10 +1,12 @@
 package fr.univlille1.m2iagl.sma.agents;
 
+import fr.univlille1.m2iagl.sma.environment.Environment;
 import java.awt.*;
 
 public class RedParticle extends Agent {
 
-    public RedParticle() {
+    public RedParticle(Environment<Agent> environment) {
+        super(environment);
     }
 
     @Override
