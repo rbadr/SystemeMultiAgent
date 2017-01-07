@@ -14,6 +14,10 @@ import javax.swing.JFrame;
  
 public class Main {
     
+      private Main() {
+          throw new IllegalAccessError("Main class");
+      }
+    
     public static void main(String[] args) throws InterruptedException{
          int gridSizeX = 100;
          int gridSizeY = 100;
