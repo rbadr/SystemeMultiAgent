@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Observable;
+import java.util.Random;
 
 public class Environment<T extends IAgent> extends Observable {
 
@@ -41,7 +42,6 @@ public class Environment<T extends IAgent> extends Observable {
 
     public Coordinate findFreeBox(T agent) {
         Coordinate coordinate = agents.get(agent);
-        assert (coordinate != null);
         List<Coordinate> possibilities = mooreNeighborhood(coordinate);
         Collections.shuffle(possibilities);
         for (Coordinate c : possibilities) {
@@ -58,10 +58,11 @@ public class Environment<T extends IAgent> extends Observable {
             return null;
         }
         
+        Random r = new Random();
         Coordinate coordinate;
         do {
-            int x = (int) (Math.random() * size);
-            int y = (int) (Math.random() * size);
+            int x = r.nextInt(size);
+            int y = r.nextInt(size);
             coordinate = new Coordinate(x, y);
         } while (!freeBox(coordinate));
         return coordinate;
@@ -92,9 +93,7 @@ public class Environment<T extends IAgent> extends Observable {
 
     public List<T> getAllAgents() {
         List<T> agentsCopy = new LinkedList<>();
-        agentsList.forEach((a) -> {
-            agentsCopy.add(a);
-        });
+        agentsList.forEach(agentsCopy::add); 
         Collections.shuffle(agentsCopy);
         return agentsCopy;
     }

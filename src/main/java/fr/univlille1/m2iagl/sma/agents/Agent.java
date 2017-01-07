@@ -2,7 +2,6 @@ package fr.univlille1.m2iagl.sma.agents;
 
 import fr.univlille1.m2iagl.sma.environment.Coordinate;
 import fr.univlille1.m2iagl.sma.environment.Environment;
-import java.awt.*;
 
 public abstract class Agent implements IAgent {
 
@@ -18,6 +17,4 @@ public abstract class Agent implements IAgent {
             environment.move(this, newPosition);
         }
     }
-    
-    public abstract Color getColor();
 }

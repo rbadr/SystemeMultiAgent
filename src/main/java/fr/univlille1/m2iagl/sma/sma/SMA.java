@@ -17,22 +17,15 @@ public class SMA<T extends IAgent> {
     }
 
     public void run() throws InterruptedException {        
-        try {
             while (!simulationEnded) {
                 Thread.sleep(delay);
                 SMA.this.startAgentTour();
             }
-        } catch(InterruptedException e) {
-            e.printStackTrace();
-            System.exit(-1);
-        }
     }
 
     public void startAgentTour() {
          List<T> agents = environment.getAllAgents();
-         agents.forEach((agent) -> {
-             agent.decide();
-        });
+         agents.forEach(T::decide); 
          environment.notifyObservers();
     }
 
