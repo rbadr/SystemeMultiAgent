@@ -37,6 +37,7 @@ public class Main {
         int delay = Integer.parseInt(prop.getProperty("delay"));
         long seed = Integer.parseInt(prop.getProperty("seed"));
         int boxSize = Integer.parseInt(prop.getProperty("boxSize"));
+        int nbTicks = Integer.parseInt(prop.getProperty("nbTicks"));
  
         Environment<Agent> environment = new Environment<>(gridSizeX,gridSizeY);
  
@@ -49,7 +50,7 @@ public class Main {
         }
         environment.initEnvironment(agents, seed);
  
-        final SMA<Agent> sma = new SMA<>(environment, delay);
+        final SMA<Agent> sma = new SMA<>(environment, delay, nbTicks);
  
         JFrame frame = new MainView("Système multi-agents", sma, canvasSizeX, canvasSizeY, boxSize);
         frame.setVisible(true);
