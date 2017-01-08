@@ -35,6 +35,7 @@ public class Main {
         int canvasSizeX=Integer.parseInt(prop.getProperty("canvasSizeX"));
         int canvasSizeY=Integer.parseInt(prop.getProperty("canvasSizeY"));
         int delay = Integer.parseInt(prop.getProperty("delay"));
+        long seed = Integer.parseInt(prop.getProperty("seed"));
  
         Environment<Agent> environment = new Environment<>(gridSizeX,gridSizeY);
  
@@ -45,7 +46,7 @@ public class Main {
         for(int i = 0; i < numberOfGreenParticles; i++) {
             agents.add(new RedParticle(environment));
         }
-        environment.initEnvironment(agents);
+        environment.initEnvironment(agents, seed);
  
         final SMA<Agent> sma = new SMA<>(environment, delay);
  

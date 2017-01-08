@@ -31,10 +31,10 @@ public class Environment<T extends IAgent> extends Observable {
         }
     }
 
-    public void initEnvironment(List<T> agents) {
+    public void initEnvironment(List<T> agents, long seed) {
         Coordinate coordinate;
         for (T agent : agents) {
-            coordinate = findFreeBox();
+            coordinate = findFreeBox(seed);
             addAgent(agent, coordinate);
         }
         setChanged();
@@ -52,13 +52,13 @@ public class Environment<T extends IAgent> extends Observable {
         return null;
     }
 
-    public Coordinate findFreeBox() {
+    public Coordinate findFreeBox(long seed) {
         int size = board.size();
         if (agentsList.size() == size * size) {
             return null;
         }
         
-        Random r = new Random();
+        Random r = new Random(seed);
         Coordinate coordinate;
         do {
             int x = r.nextInt(size);
