@@ -27,7 +27,7 @@ public class EnvironmentView extends JPanel implements Observer {
         int width = board.get(0).size();
 
         int boxHeight = getHeight() / height;
-        int boxWidth = getWidth() / height;
+        int boxWidth = getWidth() / width;
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
