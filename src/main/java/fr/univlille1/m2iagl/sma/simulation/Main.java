@@ -36,6 +36,7 @@ public class Main {
         int canvasSizeY=Integer.parseInt(prop.getProperty("canvasSizeY"));
         int delay = Integer.parseInt(prop.getProperty("delay"));
         long seed = Integer.parseInt(prop.getProperty("seed"));
+        int boxSize = Integer.parseInt(prop.getProperty("boxSize"));
  
         Environment<Agent> environment = new Environment<>(gridSizeX,gridSizeY);
  
@@ -50,7 +51,7 @@ public class Main {
  
         final SMA<Agent> sma = new SMA<>(environment, delay);
  
-        JFrame frame = new MainView("Système multi-agents", sma, canvasSizeX, canvasSizeY);
+        JFrame frame = new MainView("Système multi-agents", sma, canvasSizeX, canvasSizeY, boxSize);
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
  

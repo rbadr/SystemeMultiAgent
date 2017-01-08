@@ -11,11 +11,13 @@ import javax.swing.*;
 public class EnvironmentView extends JPanel implements Observer {
 
     private transient Environment environment;
+    private int boxSize;
 
-    public EnvironmentView(Environment environment) {
+    public EnvironmentView(Environment environment,int boxSize) {
         super();
         this.environment = environment;
-        environment.addObserver(this);
+        this.boxSize=(boxSize*100);
+        environment.addObserver(this);  
     }
 
     @Override
@@ -26,8 +28,8 @@ public class EnvironmentView extends JPanel implements Observer {
         int height = board.size();
         int width = board.get(0).size();
 
-        int boxHeight = getHeight() / height;
-        int boxWidth = getWidth() / width;
+        int boxHeight = getHeight() / boxSize;
+        int boxWidth = getWidth() / boxSize;
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {

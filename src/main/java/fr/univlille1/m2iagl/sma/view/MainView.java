@@ -6,10 +6,10 @@ import javax.swing.*;
 
 public class MainView extends JFrame {
     
-    public MainView(String title, SMA mas, int canvasSizeX, int canvasSizeY){
+    public MainView(String title, SMA mas, int canvasSizeX, int canvasSizeY, int boxSize){
         super(title);
 
-        EnvironmentView environmentView = new EnvironmentView(mas.getEnvironment());
+        EnvironmentView environmentView = new EnvironmentView(mas.getEnvironment(), boxSize);
         environmentView.setPreferredSize(new Dimension(canvasSizeX, canvasSizeY));
 
         JPanel myJPanel = new JPanel();
