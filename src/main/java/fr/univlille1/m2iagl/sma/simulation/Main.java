@@ -39,6 +39,10 @@ public class Main {
         int boxSize = Integer.parseInt(prop.getProperty("boxSize"));
         int nbTicks = Integer.parseInt(prop.getProperty("nbTicks"));
  
+        FishAgent.setGestationDuration(2);
+        SharkAgent.setGestationDuration(6);
+        SharkAgent.setStarvationDuration(4);
+        
         Environment<Agent> environment = new Environment<>(gridSizeX,gridSizeY);
  
         List<Agent> agents = new LinkedList<>();
