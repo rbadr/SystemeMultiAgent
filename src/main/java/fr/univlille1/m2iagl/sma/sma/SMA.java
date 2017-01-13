@@ -19,6 +19,9 @@ public class SMA<T extends IAgent> {
     }
 
     public void run() throws InterruptedException {
+        simulationEnded = false;
+        
+        
         if(nbTicks==0){
             while (!simulationEnded) {
             Thread.sleep(delay);
@@ -33,10 +36,19 @@ public class SMA<T extends IAgent> {
 
     public void startAgentTour() {
         List<T> agents = environment.getAllAgents();
-        agents.forEach(T::decide); 
+        for (T agent : agents) {
+             if (!environment.isDead(agent)) {
+                 agent.decide();
+             }
+         }
+        //nbTicks++;
+        environment.clearDead();
         environment.notifyObservers();
     }
     
+    public long getNbTicks() {
+        return nbTicks;
+    }
 
     public synchronized void endSimulation(boolean ended) {
         this.simulationEnded = ended;
