@@ -1,14 +1,17 @@
 package fr.univlille1.m2iagl.sma.environment;
 
 import fr.univlille1.m2iagl.sma.agents.IAgent;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Random;
+import java.util.Set;
 
 public class Environment<T extends IAgent> extends Observable {
 
@@ -16,11 +19,14 @@ public class Environment<T extends IAgent> extends Observable {
     private Map<T, Coordinate> agents;
 
     private List<T> agentsList;
+    
+    private Set<T> theDead;
 
     public Environment(int gridSizeX, int gridSizeY) {
         agents = new HashMap<>();
         agentsList = new LinkedList<>();
         board = new ArrayList<>();
+        theDead = new HashSet<>();
         List<T> xCoordinate;
         for (int y = 0; y < gridSizeY; y++) {
             xCoordinate = new ArrayList<>();
@@ -97,6 +103,14 @@ public class Environment<T extends IAgent> extends Observable {
         Collections.shuffle(agentsCopy);
         return agentsCopy;
     }
+    
+    public boolean isDead(T agent) {
+        return theDead.contains(agent);
+    }
+    
+    public void clearDead() {
+        theDead.clear();
+    }
 
     public Map<Coordinate, T> getNeighbors(T agent) {
         Coordinate coordinate = agents.get(agent);
@@ -144,6 +158,16 @@ public class Environment<T extends IAgent> extends Observable {
         setBoardBox(coordinate, agent);
         setChanged();
     }
+    
+    public void removeAgent(T agent) {
+        Coordinate agentCoordinate = agents.get(agent);
+        setBoardBox(agentCoordinate, null);
+        agentsList.remove(agent);
+        agents.remove(agent);
+        theDead.add(agent);
+        setChanged();
+    }
+    
 
     private void setBoardBox(Coordinate agentCoordinate, T agent) {
         board.get(agentCoordinate.getY()).set(agentCoordinate.getX(), agent);
@@ -161,5 +185,23 @@ public class Environment<T extends IAgent> extends Observable {
 
     public List<List<T>> getBoard() {
         return board;
+    }
+    
+    public Map<Color, Integer> getAgentGroupedByColor() {
+        // Compute the number of Agents for each color
+        Color currentColor;
+        int nbAgentsForColor;
+        Map<Color, Integer> counter = new HashMap<>();
+        for(T agent : agentsList) {
+            currentColor = agent.getColor();
+            if(counter.containsKey(currentColor)) {
+                nbAgentsForColor = counter.get(currentColor) + 1;
+            }
+            else {
+                nbAgentsForColor = 1;
+            }
+            counter.put(currentColor, nbAgentsForColor);
+        }
+        return counter;
     }
 }
