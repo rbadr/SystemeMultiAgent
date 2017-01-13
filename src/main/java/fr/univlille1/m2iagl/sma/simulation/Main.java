@@ -1,8 +1,8 @@
 package fr.univlille1.m2iagl.sma.simulation;
 
 import fr.univlille1.m2iagl.sma.agents.Agent;
-import fr.univlille1.m2iagl.sma.agents.BlueParticle;
-import fr.univlille1.m2iagl.sma.agents.RedParticle;
+import fr.univlille1.m2iagl.sma.agents.FishAgent;
+import fr.univlille1.m2iagl.sma.agents.SharkAgent;
 import fr.univlille1.m2iagl.sma.environment.Environment;
 import fr.univlille1.m2iagl.sma.sma.SMA;
 import fr.univlille1.m2iagl.sma.view.MainView;
@@ -42,11 +42,11 @@ public class Main {
         Environment<Agent> environment = new Environment<>(gridSizeX,gridSizeY);
  
         List<Agent> agents = new LinkedList<>();
-        for(int i = 0; i < numberOfBlueParticles; i ++) {
-            agents.add(new BlueParticle(environment));
+        for(int i = 0; i < 2000; i ++) {
+            agents.add(new FishAgent(environment));
         }
-        for(int i = 0; i < numberOfGreenParticles; i++) {
-            agents.add(new RedParticle(environment));
+        for(int i = 0; i < 900; i++) {
+            agents.add(new SharkAgent(environment));
         }
         environment.initEnvironment(agents, seed);
  
