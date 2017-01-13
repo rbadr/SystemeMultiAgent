@@ -75,4 +75,12 @@ public class SharkAgent extends Agent {
     public boolean canEat() {
         return true;
     }
+    
+    public static void setGestationDuration(int gestationDuration) {
+        SharkAgent.GESTATION_DURATION = gestationDuration;
+    }
+
+    public static void setStarvationDuration(int starvationDuration) {
+        SharkAgent.STARVATION_DURATION = starvationDuration;
+    }
 }
