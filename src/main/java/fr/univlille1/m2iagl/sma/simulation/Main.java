@@ -46,10 +46,10 @@ public class Main {
         Environment<Agent> environment = new Environment<>(gridSizeX,gridSizeY);
  
         List<Agent> agents = new LinkedList<>();
-        for(int i = 0; i < 2000; i ++) {
+        for(int i = 0; i < 600; i ++) {
             agents.add(new FishAgent(environment));
         }
-        for(int i = 0; i < 900; i++) {
+        for(int i = 0; i < 200; i++) {
             agents.add(new SharkAgent(environment));
         }
         environment.initEnvironment(agents, seed);

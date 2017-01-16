@@ -7,7 +7,7 @@ import java.awt.Color;
 public abstract class Agent implements IAgent, IFoodChain {
     
     protected int gestation;
-    private int age;
+    protected int age;
     
     protected Environment<Agent> environment;
     

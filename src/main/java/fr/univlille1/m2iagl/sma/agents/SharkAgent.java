@@ -47,6 +47,8 @@ public class SharkAgent extends Agent {
 
     @Override
     public Color getColor() {
+        if(age < 10)
+            return Color.PINK;
         return Color.RED;
     }
 

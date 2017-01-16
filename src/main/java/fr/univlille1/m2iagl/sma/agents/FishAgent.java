@@ -21,6 +21,8 @@ public class FishAgent extends Agent {
 
     @Override
     public Color getColor() {
+        if(age < 2)
+            return Color.GREEN;
         return Color.BLUE;
     }
 
