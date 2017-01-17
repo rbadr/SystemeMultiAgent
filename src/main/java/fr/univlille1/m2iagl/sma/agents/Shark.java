@@ -5,25 +5,25 @@ import fr.univlille1.m2iagl.sma.environment.Environment;
 import java.awt.*;
 import java.util.Map;
 
-public class SharkAgent extends Agent {
+public class Shark extends Agent {
     
-    private static int STARVATION_DURATION = 3;
-    private static int GESTATION_DURATION = 8;
+    private static int sharkStarveTime = 3;
+    private static int sharkBreedTime = 8;
     private int starvation;
 
-    public SharkAgent(Environment<Agent> environment) {
+    public Shark(Environment<Agent> environment) {
         super(environment);
     }
 
     @Override
     public void decide() {
         super.decide();
-        if (starvation >= STARVATION_DURATION) {
+        if (starvation >= sharkStarveTime) {
             environment.removeAgent(this);
         } else {
             tryToEat();
             tryToGiveBirth();
-            move();
+            tryToMove();
         }
     }
     
@@ -47,20 +47,20 @@ public class SharkAgent extends Agent {
 
     @Override
     public Color getColor() {
-        if(age < 10)
+        if(age < 2)
             return Color.PINK;
         return Color.RED;
     }
 
     @Override
     protected void addChild(Coordinate childCoordinate) {
-        SharkAgent shark = new SharkAgent(environment);
+        Shark shark = new Shark(environment);
         environment.addAgent(shark, childCoordinate);
     }
 
     @Override
     protected boolean canGiveBirth() {
-        return gestation == GESTATION_DURATION;
+        return breedTime == sharkBreedTime;
     }
 
     @Override
@@ -79,10 +79,10 @@ public class SharkAgent extends Agent {
     }
     
     public static void setGestationDuration(int gestationDuration) {
-        SharkAgent.GESTATION_DURATION = gestationDuration;
+        Shark.sharkBreedTime = gestationDuration;
     }
 
     public static void setStarvationDuration(int starvationDuration) {
-        SharkAgent.STARVATION_DURATION = starvationDuration;
+        Shark.sharkStarveTime = starvationDuration;
     }
 }

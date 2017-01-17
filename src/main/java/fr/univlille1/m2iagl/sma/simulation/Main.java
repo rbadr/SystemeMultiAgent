@@ -1,8 +1,8 @@
 package fr.univlille1.m2iagl.sma.simulation;
 
 import fr.univlille1.m2iagl.sma.agents.Agent;
-import fr.univlille1.m2iagl.sma.agents.FishAgent;
-import fr.univlille1.m2iagl.sma.agents.SharkAgent;
+import fr.univlille1.m2iagl.sma.agents.Fish;
+import fr.univlille1.m2iagl.sma.agents.Shark;
 import fr.univlille1.m2iagl.sma.environment.Environment;
 import fr.univlille1.m2iagl.sma.sma.SMA;
 import fr.univlille1.m2iagl.sma.view.MainView;
@@ -30,27 +30,31 @@ public class Main {
         
         int gridSizeX = Integer.parseInt(prop.getProperty("gridSizeX"));
         int gridSizeY = Integer.parseInt(prop.getProperty("gridSizeY"));
-        int numberOfBlueParticles = Integer.parseInt(prop.getProperty("nbParticles"))/2;
-        int numberOfGreenParticles = Integer.parseInt(prop.getProperty("nbParticles"))/2;
+        int numberOfParticles = Integer.parseInt(prop.getProperty("nbParticles"));
+        int numberOfSharks = Integer.parseInt(prop.getProperty("numberOfSharks"));
+        int numberOfFish = Integer.parseInt(prop.getProperty("numberOfFish"));
         int canvasSizeX=Integer.parseInt(prop.getProperty("canvasSizeX"));
         int canvasSizeY=Integer.parseInt(prop.getProperty("canvasSizeY"));
         int delay = Integer.parseInt(prop.getProperty("delay"));
         long seed = Integer.parseInt(prop.getProperty("seed"));
         int boxSize = Integer.parseInt(prop.getProperty("boxSize"));
         int nbTicks = Integer.parseInt(prop.getProperty("nbTicks"));
+        int fishBreedTime = Integer.parseInt(prop.getProperty("fishBreedTime")); 
+        int sharkBreedTime = Integer.parseInt(prop.getProperty("sharkBreedTime")); 
+        int sharkStarveTime = Integer.parseInt(prop.getProperty("sharkStarveTime")); 
  
-        FishAgent.setGestationDuration(2);
-        SharkAgent.setGestationDuration(6);
-        SharkAgent.setStarvationDuration(4);
+        Fish.setGestationDuration(fishBreedTime);
+        Shark.setGestationDuration(sharkBreedTime);
+        Shark.setStarvationDuration(sharkStarveTime);
         
         Environment<Agent> environment = new Environment<>(gridSizeX,gridSizeY);
  
         List<Agent> agents = new LinkedList<>();
-        for(int i = 0; i < 600; i ++) {
-            agents.add(new FishAgent(environment));
+        for(int i = 0; i < numberOfFish; i ++) {
+            agents.add(new Fish(environment));
         }
-        for(int i = 0; i < 200; i++) {
-            agents.add(new SharkAgent(environment));
+        for(int i = 0; i < numberOfSharks; i++) {
+            agents.add(new Shark(environment));
         }
         environment.initEnvironment(agents, seed);
  

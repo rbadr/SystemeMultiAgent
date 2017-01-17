@@ -6,7 +6,7 @@ import java.awt.Color;
 
 public abstract class Agent implements IAgent, IFoodChain {
     
-    protected int gestation;
+    protected int breedTime;
     protected int age;
     
     protected Environment<Agent> environment;
@@ -26,10 +26,10 @@ public abstract class Agent implements IAgent, IFoodChain {
             if (childCoordinate != null) {
                 this.addChild(childCoordinate);
             }
-            this.gestation = 0;
+            this.breedTime = 0;
         }
         else {
-            gestation++;
+            breedTime++;
         }
     }
     
@@ -37,7 +37,7 @@ public abstract class Agent implements IAgent, IFoodChain {
     
     protected abstract boolean canGiveBirth();
 
-    protected void move() {
+    protected void tryToMove() {
         Coordinate newPosition = environment.findFreeBox(this);
         if (newPosition != null) {
             environment.move(this, newPosition);
@@ -46,6 +46,7 @@ public abstract class Agent implements IAgent, IFoodChain {
     
     public abstract void removeFromEnvironment();
 
+    @Override
     public abstract Color getColor();
 
     public int getAge() {

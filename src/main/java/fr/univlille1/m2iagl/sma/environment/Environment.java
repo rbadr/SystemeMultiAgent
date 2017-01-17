@@ -188,7 +188,6 @@ public class Environment<T extends IAgent> extends Observable {
     }
     
     public Map<Color, Integer> getAgentGroupedByColor() {
-        // Compute the number of Agents for each color
         Color currentColor;
         int nbAgentsForColor;
         Map<Color, Integer> counter = new HashMap<>();

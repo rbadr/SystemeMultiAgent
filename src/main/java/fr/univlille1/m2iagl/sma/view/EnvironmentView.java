@@ -38,7 +38,7 @@ public class EnvironmentView extends JPanel implements Observer {
                 } else {
                 	g.setColor(Color.LIGHT_GRAY);
                 }
-                g.fill3DRect(x * boxWidth, y * boxHeight, boxWidth, boxHeight,true);
+                g.fillOval(x * boxWidth, y * boxHeight, boxWidth, boxHeight);
             }
         }
     }

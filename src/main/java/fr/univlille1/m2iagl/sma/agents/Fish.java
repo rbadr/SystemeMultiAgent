@@ -4,18 +4,18 @@ import fr.univlille1.m2iagl.sma.environment.Coordinate;
 import fr.univlille1.m2iagl.sma.environment.Environment;
 import java.awt.*;
 
-public class FishAgent extends Agent {
+public class Fish extends Agent {
     
-    private static int GESTATION_DURATION = 2;
+    private static int fishBreedTime = 2;
 
-    public FishAgent(Environment<Agent> environment) {
+    public Fish(Environment<Agent> environment) {
         super(environment);
     }
 
     @Override
     public void decide() {
         super.decide();
-        this.move();
+        this.tryToMove();
         this.tryToGiveBirth();
     }
 
@@ -28,13 +28,13 @@ public class FishAgent extends Agent {
 
     @Override
     public void addChild(Coordinate childCoordinate) {
-        FishAgent fishAgent = new FishAgent(environment);
+        Fish fishAgent = new Fish(environment);
         environment.addAgent(fishAgent, childCoordinate);
     }
 
     @Override
     public boolean canGiveBirth() {
-        return gestation == GESTATION_DURATION;
+        return breedTime == fishBreedTime;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class FishAgent extends Agent {
     }
 
     public static void setGestationDuration(int gestationDuration) {
-        GESTATION_DURATION = gestationDuration;
+        fishBreedTime = gestationDuration;
     }
 
     @Override
