@@ -27,14 +27,32 @@ public abstract class CSVLogger<T extends Agent> implements Observer {
         writeLine();
     }
 
-    protected void getColorPopulation(StringBuilder builder) {
+    protected void getPopulation(StringBuilder builder) {
         Environment environment = sma.getEnvironment();
         Map<Color, Integer> agentColors = environment.getAgentGroupedByColor();
-        int nb;
-        for(Color color : agentColors.keySet()) {
-            nb = agentColors.get(color);
-            builder.append(nb).append(" ");
-        }
+        int nbFishs;
+        int nbBornFishs;
+        int nbSharks;
+        int nbBornSharks;
+        
+        if(!agentColors.containsKey(Color.BLUE)){
+            nbFishs = 0;
+        } else nbFishs = agentColors.get(Color.BLUE); 
+        
+        if(!agentColors.containsKey(Color.GREEN)){
+            nbBornFishs = 0;
+        } else nbBornFishs = agentColors.get(Color.GREEN);
+        
+        if(!agentColors.containsKey(Color.RED)){
+            nbSharks = 0;
+        } else nbSharks = agentColors.get(Color.RED);
+        
+        if(!agentColors.containsKey(Color.PINK)){
+            nbBornSharks = 0;
+        } else nbBornSharks = agentColors.get(Color.PINK); 
+
+        builder.append(nbFishs+nbBornFishs).append(" ").append(nbSharks+nbBornSharks);
+
     }
 
     protected abstract void writeLine();

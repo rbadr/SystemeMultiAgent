@@ -13,7 +13,7 @@ public class PopulationLogger<T extends Agent> extends CSVLogger<T> {
     protected void writeLine() {
         Environment environment = sma.getEnvironment();
         StringBuilder builder = new StringBuilder();
-        getColorPopulation(builder);
+        getPopulation(builder);
         logger.trace(builder.toString());
     }
 }

@@ -13,7 +13,7 @@ public class TimeLogger<T extends Agent> extends CSVLogger<T> {
     protected void writeLine() {
         long chronons = sma.getNbTicks();
         StringBuilder builder = new StringBuilder(chronons + " ");
-        getColorPopulation(builder);
+        getPopulation(builder);
         logger.trace(builder.toString());
     }
 }
