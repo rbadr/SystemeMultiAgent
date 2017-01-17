@@ -4,6 +4,8 @@ import fr.univlille1.m2iagl.sma.agents.Agent;
 import fr.univlille1.m2iagl.sma.agents.Fish;
 import fr.univlille1.m2iagl.sma.agents.Shark;
 import fr.univlille1.m2iagl.sma.environment.Environment;
+import fr.univlille1.m2iagl.sma.graph.PopulationLogger;
+import fr.univlille1.m2iagl.sma.graph.TimeLogger;
 import fr.univlille1.m2iagl.sma.sma.SMA;
 import fr.univlille1.m2iagl.sma.view.MainView;
 import java.awt.event.WindowAdapter;
@@ -59,6 +61,9 @@ public class Main {
         environment.initEnvironment(agents, seed);
  
         final SMA<Agent> sma = new SMA<>(environment, delay, nbTicks);
+        
+        new TimeLogger<Agent>(sma);
+        new PopulationLogger<Agent>(sma);
  
         JFrame frame = new MainView("Système multi-agents", sma, canvasSizeX, canvasSizeY, boxSize);
         frame.setVisible(true);
