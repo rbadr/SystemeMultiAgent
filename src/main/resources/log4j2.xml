@@ -11,17 +11,12 @@
                 <Pattern>%m%n</Pattern>
             </PatternLayout>
         </File>
-        <File name="SatisfactionLogger" fileName="target/simulationSatisfaction.csv" append="false">
-            <PatternLayout>
-                <Pattern>%m%n</Pattern>
-            </PatternLayout>
-        </File>
     </Appenders>
      <Loggers>
-        <Logger name="iagl.idl.simulation.graph.PopulationLogger" level="trace">
+        <Logger name="fr.univlille1.m2iagl.sma.graph.PopulationLogger" level="trace">
             <AppenderRef ref="PopulationLogger"/>
         </Logger>
-        <Logger name="iagl.idl.simulation.graph.TimeLogger" level="trace">
+        <Logger name="fr.univlille1.m2iagl.sma.graph.TimeLogger" level="trace">
             <AppenderRef ref="TimeLogger"/>
         </Logger>
     </Loggers>
