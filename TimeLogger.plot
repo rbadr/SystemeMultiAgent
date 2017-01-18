@@ -1,10 +1,10 @@
 set terminal svg
-set output 'target/simulationTime.svg'
+set output 'target/watorSimulationTime.svg'
 set   autoscale
-set xtic auto                          # set xtics automatically
-set ytic auto                          # set ytics automatically
-set title "Fish And Sharks Simulation"
-set xlabel "Time (chronons)"
+set xtic auto                          
+set ytic auto                          
+set title "Wator Simulation"
+set xlabel "Time (Thicks)"
 set ylabel "Population"
 set autoscale x
 set autoscale y
