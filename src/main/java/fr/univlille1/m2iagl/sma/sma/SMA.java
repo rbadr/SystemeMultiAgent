@@ -2,11 +2,13 @@ package fr.univlille1.m2iagl.sma.sma;
 
 import fr.univlille1.m2iagl.sma.agents.IAgent;
 import fr.univlille1.m2iagl.sma.environment.Environment;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.List;
 
 
-public class SMA<T extends IAgent> {
-    private final int delay;
+public class SMA<T extends IAgent> implements KeyListener {
+    private int delay;
     protected boolean simulationEnded = false;
     private int nbTicks;
     
@@ -57,5 +59,32 @@ public class SMA<T extends IAgent> {
     
     public boolean simulationEnded() {
         return simulationEnded;
+    }
+    
+    @Override
+    public void keyTyped(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        int id = e.getID();
+        switch (id) {
+            case KeyEvent.VK_SPACE:
+                break;
+            case KeyEvent.VK_W:
+                delay = delay - 50;
+                break;
+            case KeyEvent.VK_X:
+                delay = delay + 50;
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
