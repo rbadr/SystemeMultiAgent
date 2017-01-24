@@ -9,10 +9,6 @@ public class Winner extends HunterAvatarAgent {
         super(environment);
     }
 
-    @Override
-    public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public boolean canStopSimulation() {
