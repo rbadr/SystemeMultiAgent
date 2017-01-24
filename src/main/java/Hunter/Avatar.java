@@ -15,7 +15,7 @@ public class Avatar extends HunterAvatarAgent implements KeyListener {
 
     @Override
     public void decide() {
-        Coordinate nextMove = new Coordinate(2,3);
+        Coordinate nextMove = new Coordinate(2+dirX,3+dirY);
         environment.move(this, nextMove);
     }
 
