@@ -3,11 +3,14 @@ package Hunter;
 import fr.univlille1.m2iagl.sma.environment.Coordinate;
 import fr.univlille1.m2iagl.sma.environment.Environment;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Avatar extends HunterAvatarAgent {
+public class Avatar extends HunterAvatarAgent implements KeyListener {
 
+    private int dirX,dirY;
     public Avatar(Environment<HunterAvatarAgent> environment) {
         super(environment);
     }
@@ -56,8 +59,36 @@ public class Avatar extends HunterAvatarAgent {
         return false;
     }
 
-    @Override
     public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+           }
+    
+    @Override
+     public void keyPressed(KeyEvent e){
+        switch(e.getKeyCode()){
+            case KeyEvent.VK_LEFT:
+                dirY = -1;
+                dirX = 0;
+                break;
+            case KeyEvent.VK_RIGHT:
+                dirY = 1;
+                dirX = 0;
+                break;
+            case KeyEvent.VK_UP:
+                dirX = -1;
+                dirY = 0;
+                break;
+            case KeyEvent.VK_DOWN:
+                dirX = 1;
+                dirY = 0;
+                break;
+        }
     }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+          }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+         }
 }

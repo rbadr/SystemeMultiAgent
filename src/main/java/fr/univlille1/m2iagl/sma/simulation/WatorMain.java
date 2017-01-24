@@ -17,9 +17,9 @@ import java.util.List;
 import java.util.Properties;
 import javax.swing.JFrame;
  
-public class Main {
+public class WatorMain {
     
-      private Main() {
+      private WatorMain() {
           throw new IllegalAccessError("Main class");
       }
     
@@ -65,7 +65,7 @@ public class Main {
         new TimeLogger<Agent>(sma);
         new PopulationLogger<Agent>(sma);
  
-        JFrame frame = new MainView("Système multi-agents", sma, canvasSizeX, canvasSizeY, boxSize);
+        JFrame frame = new MainView("Wator Simulation", sma, canvasSizeX, canvasSizeY, boxSize);
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
  

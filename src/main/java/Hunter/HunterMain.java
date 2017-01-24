@@ -11,13 +11,12 @@ import javax.swing.JFrame;
 
 public class HunterMain {
 
-	public static void main(String[] args) throws InterruptedException, IOException {
-
-		int numberOfPreys = 5;
-		int numberOfPredators = 1;
-		int percentageOfObstacles = 1;
+    public static void main(String[] args) throws InterruptedException, IOException {
+        int numberOfPreys = 5;
+	int numberOfPredators = 1;
+	int percentageOfObstacles = 1;
                 
-                Properties prop = new Properties();
+        Properties prop = new Properties();
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
         InputStream stream = loader.getResourceAsStream("config.properties");
         prop.load(stream);
@@ -48,9 +47,4 @@ public class HunterMain {
         });
         sma.run();
 	}
-
-    private static void usage() {
-        System.err.println("usage: size numberOfPreys numberOfPredators percentageOfObstacles delay");
-        System.exit(-1);
-    }
 }
