@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 public class HunterMain {
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        int numberOfPreys = 5;
+        int numberOfPreys = 1;
 	int numberOfPredators = 1;
 	int percentageOfObstacles = 1;
                 

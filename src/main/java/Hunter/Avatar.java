@@ -5,8 +5,6 @@ import fr.univlille1.m2iagl.sma.environment.Environment;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Avatar extends HunterAvatarAgent implements KeyListener {
 
@@ -17,26 +15,8 @@ public class Avatar extends HunterAvatarAgent implements KeyListener {
 
     @Override
     public void decide() {
-        List<List<Integer>> dijkstra = new ArrayList<>();
-        List<HunterAvatarAgent> agents = environment.getAllAgents();
-        Coordinate nextMove = null;
-        int nextMoveNumber = Integer.MIN_VALUE;
-        List<Coordinate> neighborsCoordinates = environment.mooreNeighborhood(environment.getCoordinateOf(this));
-        for(HunterAvatarAgent hunter : agents) {
-            if(hunter.canEat()) {
-                initDijkstraGrid(dijkstra);
-                getShortestPath(dijkstra, hunter);
-                for(Coordinate c : neighborsCoordinates) {
-                    if(dijkstra.get(c.getY()).get(c.getX()) != 0 && dijkstra.get(c.getY()).get(c.getX()) > nextMoveNumber) {
-                        nextMoveNumber = dijkstra.get(c.getY()).get(c.getX());
-                        nextMove = c;
-                    }
-                }
-            }
-        }
-        if(nextMove != null) {
-            environment.move(this, nextMove);
-        }
+        Coordinate nextMove = new Coordinate(2,3);
+        environment.move(this, nextMove);
     }
 
     @Override
