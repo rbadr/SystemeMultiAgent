@@ -1,6 +1,5 @@
 package Hunter;
 
-import fr.univlille1.m2iagl.sma.environment.Coordinate;
 import fr.univlille1.m2iagl.sma.environment.Environment;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
@@ -15,8 +14,7 @@ public class Avatar extends HunterAvatarAgent implements KeyListener {
 
     @Override
     public void decide() {
-        Coordinate nextMove = new Coordinate(2+dirX,3+dirY);
-        environment.move(this, nextMove);
+        environment.moveNewPosition(this, dirX, dirY);
     }
 
     @Override
