@@ -33,7 +33,7 @@ public class HunterMain {
 
 
         Environment<HunterAvatarAgent> environment = new Environment<>(gridSizeX,gridSizeY);
-        final PacManMAS sma = new PacManMAS(environment, delay);
+        final PacManSMA sma = new PacManSMA(environment, delay);
         sma.init(numberOfPreys, numberOfPredators, percentageOfObstacles);
 
         JFrame frame = new MainView("Système multi-agents", sma, canvasSizeX, canvasSizeY, boxSize);

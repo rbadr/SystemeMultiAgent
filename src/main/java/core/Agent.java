@@ -1,9 +1,8 @@
 package core;
 
-import core.Environment;
 import java.awt.Color;
 
-public abstract class Agent implements IAgent, IFoodChain {
+public abstract class Agent implements IAgent, IFoodChain, IAgentEndSimulation {
     
     protected int breedTime;
     protected int age;
@@ -54,5 +53,10 @@ public abstract class Agent implements IAgent, IFoodChain {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public boolean canStopSimulation() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

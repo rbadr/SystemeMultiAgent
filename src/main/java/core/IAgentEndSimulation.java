@@ -1,4 +1,4 @@
-package Hunter;
+package core;
 
 import core.IAgent;
 

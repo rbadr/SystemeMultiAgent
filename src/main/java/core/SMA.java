@@ -1,7 +1,5 @@
 package core;
 
-import core.IAgent;
-import core.Environment;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.List;

@@ -7,9 +7,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class PacManMAS extends HunterAvatarSMA<HunterAvatarAgent> {
+public class PacManSMA extends HunterAvatarSMA<HunterAvatarAgent> {
     private Avatar avatar;
-    public PacManMAS(Environment<HunterAvatarAgent> environment, int delay) {
+    public PacManSMA(Environment<HunterAvatarAgent> environment, int delay) {
         super(environment, delay);
     }
 

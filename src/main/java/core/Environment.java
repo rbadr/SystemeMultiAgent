@@ -183,14 +183,34 @@ public class Environment<T extends IAgent> extends Observable {
     }
     
     public void moveNewPosition(T agent, int x, int y){
-        if (agents.containsKey(agent)) {
             Coordinate previousPosition = agents.get(agent);
-            Coordinate next = new Coordinate(previousPosition.getX()+x,previousPosition.getY()+y);
-            agents.put(agent, next);
+            Coordinate next = null;
+            
+            
+            if(previousPosition.getX()+x==100 || previousPosition.getX()+x==-1 || previousPosition.getY()+y==-1 || previousPosition.getY()+y==100 ){
+                next = previousPosition;
+                agents.put(agent, next);
             setBoardBox(previousPosition, null);
             setBoardBox(next, agent);
             setChanged();
-        }
+            } else {
+            Coordinate futurePosition = new Coordinate(previousPosition.getX()+x,previousPosition.getY()+y);
+            T wall = getAgentAt(futurePosition);
+            if(wall!=null){
+             next = previousPosition;
+             agents.put(agent, next);
+            setBoardBox(previousPosition, null);
+            setBoardBox(next, agent);
+            setChanged();   
+            } else{
+            next = new Coordinate(previousPosition.getX()+x,previousPosition.getY()+y);
+            agents.put(agent, next);
+            setBoardBox(previousPosition, null);
+            setBoardBox(next, agent);
+            setChanged();   
+            }
+            }
+        
     }
 
     public List<List<T>> getBoard() {

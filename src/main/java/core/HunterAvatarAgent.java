@@ -1,12 +1,10 @@
 package core;
 
-import Hunter.IAgentEndSimulation;
-import core.Environment;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public abstract class HunterAvatarAgent implements IAgentEndSimulation, IFoodChain{
+public abstract class HunterAvatarAgent implements IAgent, IAgentEndSimulation, IFoodChain{
     
     protected Environment<HunterAvatarAgent> environment;
     
@@ -52,5 +50,10 @@ public abstract class HunterAvatarAgent implements IAgentEndSimulation, IFoodCha
     
     protected void moveman(int dirX, int dirY){
         environment.moveNewPosition(this, dirX, dirY);
+    }
+
+    @Override
+    public boolean canStopSimulation() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

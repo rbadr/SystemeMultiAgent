@@ -1,6 +1,7 @@
 package Hunter;
 
 
+import core.IAgentEndSimulation;
 import core.Environment;
 import core.SMA;
 import java.util.List;
