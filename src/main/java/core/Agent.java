@@ -1,7 +1,6 @@
-package fr.univlille1.m2iagl.sma.agents;
+package core;
 
-import fr.univlille1.m2iagl.sma.environment.Coordinate;
-import fr.univlille1.m2iagl.sma.environment.Environment;
+import core.Environment;
 import java.awt.Color;
 
 public abstract class Agent implements IAgent, IFoodChain {

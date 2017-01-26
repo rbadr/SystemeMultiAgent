@@ -1,8 +1,8 @@
-package fr.univlille1.m2iagl.sma.graph;
+package logger;
 
-import fr.univlille1.m2iagl.sma.agents.Agent;
-import fr.univlille1.m2iagl.sma.environment.Environment;
-import fr.univlille1.m2iagl.sma.sma.SMA;
+import core.Agent;
+import core.Environment;
+import core.SMA;
 import java.awt.*;
 import java.io.FileNotFoundException;
 import java.util.Map;

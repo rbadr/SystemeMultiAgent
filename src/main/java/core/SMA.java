@@ -1,7 +1,7 @@
-package fr.univlille1.m2iagl.sma.sma;
+package core;
 
-import fr.univlille1.m2iagl.sma.agents.IAgent;
-import fr.univlille1.m2iagl.sma.environment.Environment;
+import core.IAgent;
+import core.Environment;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.List;

@@ -1,6 +1,7 @@
 package Hunter;
 
-import fr.univlille1.m2iagl.sma.environment.Environment;
+import core.HunterAvatarAgent;
+import core.Environment;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -8,13 +9,14 @@ import java.awt.event.KeyListener;
 public class Avatar extends HunterAvatarAgent implements KeyListener {
 
     private int dirX,dirY;
+    
     public Avatar(Environment<HunterAvatarAgent> environment) {
         super(environment);
     }
 
     @Override
     public void decide() {
-        environment.moveNewPosition(this, dirX, dirY);
+        this.moveman(dirX,dirY);
     }
 
     @Override
@@ -36,28 +38,25 @@ public class Avatar extends HunterAvatarAgent implements KeyListener {
     public boolean canEat() {
         return false;
     }
-
-    public void run() {
-           }
     
     @Override
      public void keyPressed(KeyEvent e){
         switch(e.getKeyCode()){
             case KeyEvent.VK_LEFT:
-                dirY = -1;
-                dirX = 0;
+                dirY = 0;
+                dirX = -1;
                 break;
             case KeyEvent.VK_RIGHT:
-                dirY = 1;
-                dirX = 0;
+                dirY = 0;
+                dirX = 1;
                 break;
             case KeyEvent.VK_UP:
-                dirX = -1;
-                dirY = 0;
+                dirX = 0;
+                dirY = -1;
                 break;
             case KeyEvent.VK_DOWN:
-                dirX = 1;
-                dirY = 0;
+                dirX = 0;
+                dirY = 1;
                 break;
         }
     }

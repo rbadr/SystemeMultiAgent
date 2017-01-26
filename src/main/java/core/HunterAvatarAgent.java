@@ -1,8 +1,7 @@
-package Hunter;
+package core;
 
-import fr.univlille1.m2iagl.sma.agents.IFoodChain;
-import fr.univlille1.m2iagl.sma.environment.Coordinate;
-import fr.univlille1.m2iagl.sma.environment.Environment;
+import Hunter.IAgentEndSimulation;
+import core.Environment;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -49,5 +48,9 @@ public abstract class HunterAvatarAgent implements IAgentEndSimulation, IFoodCha
                 }
             }
         }
+    }
+    
+    protected void moveman(int dirX, int dirY){
+        environment.moveNewPosition(this, dirX, dirY);
     }
 }

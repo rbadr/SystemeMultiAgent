@@ -1,13 +1,15 @@
 package Hunter;
 
-import fr.univlille1.m2iagl.sma.environment.Coordinate;
-import fr.univlille1.m2iagl.sma.environment.Environment;
+import core.HunterAvatarAgent;
+import core.Coordinate;
+import core.Environment;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Hunter extends HunterAvatarAgent {
 
+    int t = 0;
     public Hunter(Environment<HunterAvatarAgent> environment) {
         super(environment);
     }
@@ -19,7 +21,9 @@ public class Hunter extends HunterAvatarAgent {
 
     @Override
     public void decide() {
-        List<List<Integer>> dijkstra = new ArrayList<>();
+        t=t+1;
+        if(t%2==0){
+            List<List<Integer>> dijkstra = new ArrayList<>();
         List<HunterAvatarAgent> agents = environment.getAllAgents();
         Coordinate nextMove = null;
         int nextMoveNumber = Integer.MAX_VALUE;
@@ -46,6 +50,9 @@ public class Hunter extends HunterAvatarAgent {
                 }
             }
         }
+        }
+        
+        
     }
 
     @Override

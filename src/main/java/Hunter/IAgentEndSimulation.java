@@ -1,6 +1,6 @@
 package Hunter;
 
-import fr.univlille1.m2iagl.sma.agents.IAgent;
+import core.IAgent;
 
 public interface IAgentEndSimulation extends IAgent {
     

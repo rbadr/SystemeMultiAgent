@@ -1,4 +1,4 @@
-package fr.univlille1.m2iagl.sma.environment;
+package core;
 
 public class Coordinate {
 

@@ -13,10 +13,10 @@
         </File>
     </Appenders>
      <Loggers>
-        <Logger name="fr.univlille1.m2iagl.sma.graph.PopulationLogger" level="trace">
+        <Logger name="logger.PopulationLogger" level="trace">
             <AppenderRef ref="PopulationLogger"/>
         </Logger>
-        <Logger name="fr.univlille1.m2iagl.sma.graph.TimeLogger" level="trace">
+        <Logger name="logger.TimeLogger" level="trace">
             <AppenderRef ref="TimeLogger"/>
         </Logger>
     </Loggers>

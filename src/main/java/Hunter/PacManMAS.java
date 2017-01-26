@@ -1,21 +1,23 @@
 package Hunter;
 
-import fr.univlille1.m2iagl.sma.environment.Coordinate;
-import fr.univlille1.m2iagl.sma.environment.Environment;
+import core.HunterAvatarAgent;
+import core.Coordinate;
+import core.Environment;
 import java.util.LinkedList;
 import java.util.List;
 
 
 public class PacManMAS extends HunterAvatarSMA<HunterAvatarAgent> {
-    
+    private Avatar avatar;
     public PacManMAS(Environment<HunterAvatarAgent> environment, int delay) {
         super(environment, delay);
     }
 
     public void init(int nbPreys, int nbPredators, int percentageObstacles) {
         List<HunterAvatarAgent> agents = new LinkedList<>();
+        this.avatar=new Avatar(environment);
         for (int i = 0; i < nbPreys; i++) {
-            agents.add(new Avatar(environment));
+            agents.add(this.avatar);
         }
         for (int i = 0; i < nbPredators; i++) {
             agents.add(new Hunter(environment));
@@ -31,5 +33,9 @@ public class PacManMAS extends HunterAvatarSMA<HunterAvatarAgent> {
             environment.addAgent(obstacle, obstacleCoordinate);
         }
         environment.initEnvironment(agents,0);
+    }
+    
+    public Avatar getAvatar(){
+        return this.avatar;
     }
 }

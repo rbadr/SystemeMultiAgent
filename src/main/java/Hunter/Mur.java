@@ -1,6 +1,7 @@
 package Hunter;
 
-import fr.univlille1.m2iagl.sma.environment.Environment;
+import core.HunterAvatarAgent;
+import core.Environment;
 import java.awt.*;
 
 public class Mur extends HunterAvatarAgent {

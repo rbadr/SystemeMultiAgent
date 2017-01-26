@@ -1,7 +1,8 @@
-package fr.univlille1.m2iagl.sma.agents;
+package wator;
 
-import fr.univlille1.m2iagl.sma.environment.Coordinate;
-import fr.univlille1.m2iagl.sma.environment.Environment;
+import core.Agent;
+import core.Coordinate;
+import core.Environment;
 import java.awt.*;
 import java.util.Map;
 

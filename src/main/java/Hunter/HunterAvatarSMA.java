@@ -1,8 +1,8 @@
 package Hunter;
 
 
-import fr.univlille1.m2iagl.sma.environment.Environment;
-import fr.univlille1.m2iagl.sma.sma.SMA;
+import core.Environment;
+import core.SMA;
 import java.util.List;
 
 public class HunterAvatarSMA<T extends IAgentEndSimulation> extends SMA<T> {

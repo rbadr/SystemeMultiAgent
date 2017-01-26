@@ -1,6 +1,5 @@
-package fr.univlille1.m2iagl.sma.environment;
+package core;
 
-import fr.univlille1.m2iagl.sma.agents.IAgent;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;

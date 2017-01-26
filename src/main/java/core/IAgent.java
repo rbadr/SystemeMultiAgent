@@ -1,4 +1,4 @@
-package fr.univlille1.m2iagl.sma.agents;
+package core;
 
 import java.awt.Color;
 

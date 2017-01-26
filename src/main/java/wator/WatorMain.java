@@ -1,13 +1,13 @@
-package fr.univlille1.m2iagl.sma.simulation;
+package wator;
 
-import fr.univlille1.m2iagl.sma.agents.Agent;
-import fr.univlille1.m2iagl.sma.agents.Fish;
-import fr.univlille1.m2iagl.sma.agents.Shark;
-import fr.univlille1.m2iagl.sma.environment.Environment;
-import fr.univlille1.m2iagl.sma.graph.PopulationLogger;
-import fr.univlille1.m2iagl.sma.graph.TimeLogger;
-import fr.univlille1.m2iagl.sma.sma.SMA;
-import fr.univlille1.m2iagl.sma.view.MainView;
+import core.Agent;
+import wator.Fish;
+import wator.Shark;
+import core.Environment;
+import logger.PopulationLogger;
+import logger.TimeLogger;
+import core.SMA;
+import vue.MainView;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;

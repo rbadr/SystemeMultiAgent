@@ -1,6 +1,6 @@
-package fr.univlille1.m2iagl.sma.view;
+package vue;
 
-import fr.univlille1.m2iagl.sma.sma.SMA;
+import core.SMA;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;

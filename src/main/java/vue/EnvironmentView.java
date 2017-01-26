@@ -1,7 +1,7 @@
-package fr.univlille1.m2iagl.sma.view;
+package vue;
 
-import fr.univlille1.m2iagl.sma.agents.IAgent;
-import fr.univlille1.m2iagl.sma.environment.Environment;
+import core.IAgent;
+import core.Environment;
 import java.awt.*;
 import java.util.List;
 import java.util.Observable;

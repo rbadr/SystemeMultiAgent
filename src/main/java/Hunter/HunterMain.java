@@ -1,7 +1,8 @@
 package Hunter;
 
-import fr.univlille1.m2iagl.sma.environment.Environment;
-import fr.univlille1.m2iagl.sma.view.MainView;
+import core.HunterAvatarAgent;
+import core.Environment;
+import vue.MainView;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
@@ -36,6 +37,7 @@ public class HunterMain {
         sma.init(numberOfPreys, numberOfPredators, percentageOfObstacles);
 
         JFrame frame = new MainView("Système multi-agents", sma, canvasSizeX, canvasSizeY, boxSize);
+        frame.addKeyListener(sma.getAvatar());
         frame.setVisible(true);
 
         frame.addWindowListener(new WindowAdapter() {

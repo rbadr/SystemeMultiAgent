@@ -1,7 +1,7 @@
-package fr.univlille1.m2iagl.sma.graph;
+package logger;
 
-import fr.univlille1.m2iagl.sma.agents.Agent;
-import fr.univlille1.m2iagl.sma.sma.SMA;
+import core.Agent;
+import core.SMA;
 import java.io.FileNotFoundException;
 
 public class PopulationLogger<T extends Agent> extends CSVLogger<T> {
