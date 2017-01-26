@@ -9,9 +9,11 @@ import java.util.List;
 
 public class Hunter extends Agent {
 
-    int t = 0;
-    public Hunter(Environment<Agent> environment) {
+    int thicks = 0;
+    int speedRatio;
+    public Hunter(Environment<Agent> environment,int speedRatio) {
         super(environment);
+        this.speedRatio = (int) Math.floor(speedRatio);
     }
 
     @Override
@@ -21,8 +23,8 @@ public class Hunter extends Agent {
 
     @Override
     public void decide() {
-        t=t+1;
-        if(t%2==0){
+        thicks=thicks+1;
+        if(thicks%speedRatio==0){
             List<List<Integer>> dijkstra = new ArrayList<>();
         List<Agent> agents = environment.getAllAgents();
         Coordinate nextMove = null;

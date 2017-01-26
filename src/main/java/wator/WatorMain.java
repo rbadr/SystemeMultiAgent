@@ -1,13 +1,8 @@
 package wator;
 
 import core.Agent;
-import wator.Fish;
-import wator.Shark;
 import core.Environment;
-import logger.PopulationLogger;
-import logger.TimeLogger;
 import core.SMA;
-import vue.MainView;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
@@ -16,6 +11,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 import javax.swing.JFrame;
+import logger.PopulationLogger;
+import logger.TimeLogger;
+import vue.MainView;
  
 public class WatorMain {
     
@@ -32,7 +30,6 @@ public class WatorMain {
         
         int gridSizeX = Integer.parseInt(prop.getProperty("gridSizeX"));
         int gridSizeY = Integer.parseInt(prop.getProperty("gridSizeY"));
-        int numberOfParticles = Integer.parseInt(prop.getProperty("nbParticles"));
         int numberOfSharks = Integer.parseInt(prop.getProperty("numberOfSharks"));
         int numberOfFish = Integer.parseInt(prop.getProperty("numberOfFish"));
         int canvasSizeX=Integer.parseInt(prop.getProperty("canvasSizeX"));

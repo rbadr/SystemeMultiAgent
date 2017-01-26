@@ -13,9 +13,6 @@ import vue.MainView;
 public class HunterMain {
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        int numberOfPreys = 1;
-	int numberOfPredators = 1;
-	int percentageOfObstacles = 1;
                 
         Properties prop = new Properties();
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
@@ -27,14 +24,16 @@ public class HunterMain {
         int canvasSizeX=Integer.parseInt(prop.getProperty("canvasSizeX"));
         int canvasSizeY=Integer.parseInt(prop.getProperty("canvasSizeY"));
         int delay = Integer.parseInt(prop.getProperty("delay"));
-        long seed = Integer.parseInt(prop.getProperty("seed"));
         int boxSize = Integer.parseInt(prop.getProperty("boxSize"));
-        int nbTicks = Integer.parseInt(prop.getProperty("nbTicks"));
+	int NbHunters = Integer.parseInt(prop.getProperty("NbHunters"));
+	int WallsPercent = Integer.parseInt(prop.getProperty("WallsPercent"));
+        int SpeedAvatar = Integer.parseInt(prop.getProperty("SpeedAvatar"));
+        int SpeedHunter = Integer.parseInt(prop.getProperty("SpeedHunter"));
 
 
         Environment<Agent> environment = new Environment<>(gridSizeX,gridSizeY);
         final PacManSMA sma = new PacManSMA(environment, delay);
-        sma.init(numberOfPreys, numberOfPredators, percentageOfObstacles);
+        sma.init(NbHunters, WallsPercent, SpeedAvatar/SpeedHunter);
 
         JFrame frame = new MainView("Système multi-agents", sma, canvasSizeX, canvasSizeY, boxSize);
         frame.addKeyListener(sma.getAvatar());

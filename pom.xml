@@ -31,7 +31,7 @@
     </dependencies>
     <profiles>
         <profile>
-            <id>fishAndSharks</id>
+            <id>simulation</id>
             <build>
                 <plugins>
                     <plugin>
@@ -58,7 +58,7 @@
                             <arguments>
                                 <argument>-Dlog4j.configuration=fishAndSharks/log4j2.xml</argument>
                             </arguments>
-                            <mainClass>fr.univlille1.m2iagl.sma.simulation.Main</mainClass>
+                            <mainClass>main.Simulation</mainClass>
                         </configuration>
                     </plugin>
                 </plugins>

@@ -13,14 +13,14 @@ public class PacManSMA extends HunterAvatarSMA<Agent> {
         super(environment, delay);
     }
 
-    public void init(int nbPreys, int nbPredators, int percentageObstacles) {
+    public void init(int nbPredators, int percentageObstacles, int SpeedHunter) {
         List<Agent> agents = new LinkedList<>();
         this.avatar=new Avatar(environment);
-        for (int i = 0; i < nbPreys; i++) {
+        for (int i = 0; i < 1; i++) {
             agents.add(this.avatar);
         }
         for (int i = 0; i < nbPredators; i++) {
-            agents.add(new Hunter(environment));
+            agents.add(new Hunter(environment,SpeedHunter));
         }
 
         int nbObstacles = (int) Math.pow(environment.getBoard().size(), 2) * percentageObstacles / 100;
