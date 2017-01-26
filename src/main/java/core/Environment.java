@@ -56,6 +56,12 @@ public class Environment<T extends IAgent> extends Observable {
         }
         return null;
     }
+    
+    public Coordinate findNextPosition(T agent,int xDirection, int yDirection){
+        Coordinate coordinate = agents.get(agent);
+        Coordinate nextPosition = new Coordinate(coordinate.getX()+xDirection,coordinate.getY()+yDirection);
+        return nextPosition;
+    }
 
     public Coordinate findFreeBox(long seed) {
         int size = board.size();

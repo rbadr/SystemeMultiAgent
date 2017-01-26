@@ -1,4 +1,4 @@
-package Hunter;
+package hunter;
 
 
 import core.IAgentEndSimulation;

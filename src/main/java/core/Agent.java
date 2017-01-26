@@ -46,6 +46,16 @@ public abstract class Agent implements IAgent, IFoodChain, IAgentEndSimulation {
         }
     }
     
+    protected void moveToDirection(){
+        Coordinate newPosition = environment.findNextPosition(this,1,0);
+        if (newPosition != null) {
+            environment.move(this, newPosition);
+        } else{
+            Coordinate reversePosition = environment.findNextPosition(this,-1,0);
+            environment.move(this, reversePosition);
+        }
+    }
+    
     public abstract void removeFromEnvironment();
 
     @Override
