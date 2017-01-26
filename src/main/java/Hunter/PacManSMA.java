@@ -1,20 +1,20 @@
 package Hunter;
 
-import core.HunterAvatarAgent;
+import core.Agent;
 import core.Coordinate;
 import core.Environment;
 import java.util.LinkedList;
 import java.util.List;
 
 
-public class PacManSMA extends HunterAvatarSMA<HunterAvatarAgent> {
+public class PacManSMA extends HunterAvatarSMA<Agent> {
     private Avatar avatar;
-    public PacManSMA(Environment<HunterAvatarAgent> environment, int delay) {
+    public PacManSMA(Environment<Agent> environment, int delay) {
         super(environment, delay);
     }
 
     public void init(int nbPreys, int nbPredators, int percentageObstacles) {
-        List<HunterAvatarAgent> agents = new LinkedList<>();
+        List<Agent> agents = new LinkedList<>();
         this.avatar=new Avatar(environment);
         for (int i = 0; i < nbPreys; i++) {
             agents.add(this.avatar);

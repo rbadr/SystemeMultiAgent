@@ -1,12 +1,13 @@
 package Hunter;
 
-import core.HunterAvatarAgent;
+import core.Agent;
+import core.Coordinate;
 import core.Environment;
 import java.awt.Color;
 
-public class Defender extends HunterAvatarAgent {
+public class Defender extends Agent {
 
-    public Defender(Environment<HunterAvatarAgent> environment) {
+    public Defender(Environment<Agent> environment) {
         super(environment);
     }
 
@@ -35,6 +36,18 @@ public class Defender extends HunterAvatarAgent {
     public boolean canEat() {
         return false;
     }
+
+    @Override
+    protected void addChild(Coordinate childCoordinate) {
+            }
+
+    @Override
+    protected boolean canGiveBirth() {
+        return false;   }
+
+    @Override
+    public void removeFromEnvironment() {
+            }
 
 
     

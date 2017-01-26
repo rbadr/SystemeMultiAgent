@@ -1,16 +1,17 @@
 package Hunter;
 
-import core.HunterAvatarAgent;
+import core.Agent;
+import core.Coordinate;
 import core.Environment;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Avatar extends HunterAvatarAgent implements KeyListener {
+public class Avatar extends Agent implements KeyListener {
 
     private int dirX,dirY;
     
-    public Avatar(Environment<HunterAvatarAgent> environment) {
+    public Avatar(Environment<Agent> environment) {
         super(environment);
     }
 
@@ -68,4 +69,16 @@ public class Avatar extends HunterAvatarAgent implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
          }
+
+    @Override
+    protected void addChild(Coordinate childCoordinate) {
+           }
+
+    @Override
+    protected boolean canGiveBirth() {
+       return false;    }
+
+    @Override
+    public void removeFromEnvironment() {
+           }
 }

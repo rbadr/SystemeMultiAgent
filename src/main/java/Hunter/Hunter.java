@@ -1,16 +1,16 @@
 package Hunter;
 
-import core.HunterAvatarAgent;
+import core.Agent;
 import core.Coordinate;
 import core.Environment;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Hunter extends HunterAvatarAgent {
+public class Hunter extends Agent {
 
     int t = 0;
-    public Hunter(Environment<HunterAvatarAgent> environment) {
+    public Hunter(Environment<Agent> environment) {
         super(environment);
     }
 
@@ -24,12 +24,12 @@ public class Hunter extends HunterAvatarAgent {
         t=t+1;
         if(t%2==0){
             List<List<Integer>> dijkstra = new ArrayList<>();
-        List<HunterAvatarAgent> agents = environment.getAllAgents();
+        List<Agent> agents = environment.getAllAgents();
         Coordinate nextMove = null;
         int nextMoveNumber = Integer.MAX_VALUE;
         List<Coordinate> neighborsCoordinates = environment.mooreNeighborhood(environment.getCoordinateOf(this));
 
-        for(HunterAvatarAgent avatar : agents) {
+        for(Agent avatar : agents) {
             if(avatar.isEatable()) {
                 initDijkstraGrid(dijkstra);
                 getShortestPath(dijkstra, avatar);
@@ -44,7 +44,7 @@ public class Hunter extends HunterAvatarAgent {
         if(nextMove != null) {
             environment.move(this, nextMove);
             
-            for(HunterAvatarAgent neighbor : environment.getNeighbors(this).values()) {
+            for(Agent neighbor : environment.getNeighbors(this).values()) {
                 if(neighbor.isEatable()) {
                     environment.removeAgent(neighbor);
                 }
@@ -69,5 +69,18 @@ public class Hunter extends HunterAvatarAgent {
     public boolean canEat() {
         return true;
     }
+
+    @Override
+    protected void addChild(Coordinate childCoordinate) {
+          }
+
+    @Override
+    protected boolean canGiveBirth() {
+        return false;
+            }
+
+    @Override
+    public void removeFromEnvironment() {
+            }
 
 }

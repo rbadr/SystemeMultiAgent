@@ -1,39 +1,49 @@
 package Hunter;
 
-import core.HunterAvatarAgent;
+import core.Agent;
+import core.Coordinate;
 import core.Environment;
 import java.awt.Color;
 
-public class Winner extends HunterAvatarAgent {
+public class Winner extends Agent {
 
-    public Winner(Environment<HunterAvatarAgent> environment) {
+    public Winner(Environment<Agent> environment) {
         super(environment);
     }
 
 
     @Override
     public boolean canStopSimulation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
     }
 
     @Override
     public void decide() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+          }
 
     @Override
     public Color getColor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return Color.GREEN;    
     }
 
     @Override
     public boolean isEatable() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        return true; }
 
     @Override
     public boolean canEat() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        return false;    }
+
+    @Override
+    protected void addChild(Coordinate childCoordinate) {
+            }
+
+    @Override
+    protected boolean canGiveBirth() {
+        return false;    }
+
+    @Override
+    public void removeFromEnvironment() {
+           }
     
 }

@@ -1,14 +1,14 @@
 package Hunter;
 
-import core.HunterAvatarAgent;
+import core.Agent;
 import core.Environment;
-import vue.MainView;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import javax.swing.JFrame;
+import vue.MainView;
 
 public class HunterMain {
 
@@ -32,7 +32,7 @@ public class HunterMain {
         int nbTicks = Integer.parseInt(prop.getProperty("nbTicks"));
 
 
-        Environment<HunterAvatarAgent> environment = new Environment<>(gridSizeX,gridSizeY);
+        Environment<Agent> environment = new Environment<>(gridSizeX,gridSizeY);
         final PacManSMA sma = new PacManSMA(environment, delay);
         sma.init(numberOfPreys, numberOfPredators, percentageOfObstacles);
 
